@@ -1,0 +1,17 @@
+html {
+    background-color: #1FB58F;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #dfdce3;
+}
+
+ul {
+    justify-content: flex-end;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+}

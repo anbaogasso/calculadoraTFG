@@ -1,0 +1,12 @@
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+
+footer p {
+    margin-bottom: .25rem;
+}
