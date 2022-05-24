@@ -1,17 +1,19 @@
-html {
-    background-color: #1FB58F;
-    font-family: 'Oswald', sans-serif;
-}
-
 body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2.4rem;
     color: #dfdce3;
 }
 
 ul {
     justify-content: flex-end;
     color: black;
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+#logo {
+    margin-left: 20px;
+}
+
+#navbarSupportedContent {
+    justify-content: center;
 }

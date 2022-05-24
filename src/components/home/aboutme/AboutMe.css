@@ -1,0 +1,21 @@
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    color: black;
+}
+
+.row {
+    font-family: 'Playfair Display', serif;
+    justify-content: center;
+}
+
+button {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #f24c4e;
+    color: white;
+    border-radius: 6px;
+    border: 2px solid #f24c4e;
+    padding: 5px;
+}

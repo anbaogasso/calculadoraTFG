@@ -3,7 +3,7 @@ import React from "react";
 class Formulario extends React.Component {
     render() {
         return (
-            <form className="mb-5">
+            <form className="mb-5 needs-validation">
                 <div className="form-group">
                     <label for="inputName" className="form-label">Su nombre</label>
                     <input type="text" className="form-control" id="inputName" required/>
@@ -25,9 +25,9 @@ class Formulario extends React.Component {
                         Este campo es obligatorio.
                     </div>
                 </div>
-                <div className="input-group">
-                    <label for="inputMensaje" className="form-label">Mensaje</label>
-                    <textarea className="form-control" id="inputMensaje" required></textarea>
+                <div className="mb-3">
+                    <label for="inputMensaje" className="form-label">Mensaje </label>
+                    <textarea className="form-control" id="inputMensaje" rows="4" required></textarea>
                     <div className="invalid-feedback">
                         Este campo es obligatorio.
                     </div>
@@ -41,6 +41,7 @@ class Formulario extends React.Component {
                         Debe aceptar antes de enviar.
                     </div>
                 </div>
+                <br/>
                 <button className="btn btn-primary" type="submit">ENVIAR</button>
             </form>
         )
