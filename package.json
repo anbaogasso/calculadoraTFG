@@ -1,5 +1,9 @@
 {
   "name": "calculadora-app",
+  "author": {
+    "email": "an.bao.gasso@estudiantat.upc.edu",
+    "name": "An Bao Gassó Preixens"
+  },
   "version": "0.1.0",
   "private": true,
   "homepage": "http://an.pangea.org",

@@ -1,8 +1,7 @@
 import React from "react";
 
 import './Result.css';
-import {ToastContainer} from 'react-toastify'
-import FilaDeTablaDeDevices from './FilaDeTablaDeDevices';
+import Constants from '../../Constants';
 
 class Result extends React.Component {
     constructor(props) {
@@ -11,41 +10,50 @@ class Result extends React.Component {
             devices: [],
         };
     }
-    async componentDiMount() {
-        const response = await fetch(`${Constants.RUTA_API}/get_devices.php`);
-        const devices = await response.json();
-        this.setState({
-            devices: devices,
-        });
+
+    componentDidMount() {
+        fetch(`${Constants.RUTA_API}/get_devices.php`)
+            .then(res => res.json())
+            .then(result => {
+                this.setState({
+                    devices: result
+                });
+            });
     }
+
     render() {
+        const {devices} = this.state;
         return (
             <div>
                 <div className="column">
-                    <h1 className="is-size-3">Ver dispositivos TIC</h1>
-                    <ToastContainer></ToastContainer>
+                    <h1 className="is-size-3">Ver dispositivos</h1>
                 </div>
                 <div className="table-container">
                     <table className="table is-fullwidth is-bordered">
                         <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Model</th>
-                                <th>Marca</th>
-                                <th>Pes</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
-                            </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Modelo</th>
+                            <th>Marca</th>
+                            <th>Peso</th>
+                        </tr>
                         </thead>
-                        <body>
-                            {this.state.devices.map(devices => {
-                                return <FilaDeTablaDeDevices key={devices.ID} devices={devices}></FilaDeTablaDeDevices>;
-                            })}
-                        </body>
+                        <tbody>
+                        {devices.map(dev => {
+                            return (
+                                <tr>
+                                    <td>{dev.id}</td>
+                                    <td>{dev.model}</td>
+                                    <td>{dev.marca}</td>
+                                    <td>{dev.pes}</td>
+                                </tr>
+                            )
+                        })}
+                        </tbody>
                     </table>
                 </div>
             </div>
-        )
+        );
     }
 }
 
