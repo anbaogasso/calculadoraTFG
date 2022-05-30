@@ -1,8 +1,17 @@
 import React from "react";
 
 import hojas from '../../images/hojas_fondo.jpg';
+import { Link } from "react-router-dom";
 
 class Slider extends React.Component {
+    constructor(props) {
+        super(props);
+        this.redirectToTest = this.redirectToTest.bind(this);
+    }
+    redirectToTest() {
+        return <Link to='/test' />
+    }
+
     render() {
         return (
             <div id="slider" className="carousel slide" data-bs-ride="carousel">
@@ -12,9 +21,8 @@ class Slider extends React.Component {
                         <div className="carousel-caption d-none d-md-block">
                             <h3>Calculadora de Emisiones</h3>
                             <p>Haz el test y descubre cuál es tu huella de carbono según tus dispositivos TIC.</p>
-                            <form method="get" action="/result">
-                                <button id="comenzarTest" type="submit">COMENZAR</button>
-                            </form>
+                            <br/>
+                            <Link to={'/test'} id="comenzarTest" className="button is-info">COMENZAR</Link>
                             <br/>
                         </div>
                     </div>

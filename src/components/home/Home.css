@@ -36,6 +36,7 @@ h3 {
     border-radius: 6px;
     border: 2px solid #f24c4e;
     padding: 5px;
+    text-decoration: none;
 }
 
 /*El elemento con id="description" */
