@@ -22,7 +22,7 @@ class App extends React.Component {
                     <Route path='/sobremi' element={<SobreMi/>} />
                     <Route path='/contacto' element={<Contacto/>} />
                     <Route path='/test' element={<Test/>} />
-                    <Route path='/result' element={<Result />} />
+                    <Route path='/test/result' element={<Result />} />
                     <Route path='/aviso-legal' element={<AvisoLegal />} />
                     <Route render={() => <h1>Not found!</h1>} />
                 </Routes>

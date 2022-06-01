@@ -2,7 +2,20 @@ div {
     font-family: 'Playfair Display', serif;
 }
 
-#accordionTest {
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+h6 {
+    font-weight: 300;
+}
+
+#divTest {
     padding-top: 4rem;
     padding-left: 3rem;
     padding-right: 3rem;
@@ -10,13 +23,8 @@ div {
     font-family: 'Playfair Display', serif;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-}
+#formTest {
 
-h6 {
-    font-weight: 300;
 }
 
 #buttonSubmit {
@@ -30,9 +38,14 @@ h6 {
     padding: 7px;
 }
 
-#resultados {
+#verResultados {
     font-family: 'Playfair Display', serif;
-    color: black;
-    padding-left: 3rem;
-    padding-bottom: 3rem;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #f24c4e;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid #f24c4e;
+    padding: 7px;
+    text-decoration: none;
 }
