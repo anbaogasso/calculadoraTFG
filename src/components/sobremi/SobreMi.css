@@ -1,8 +1,32 @@
-#jumbotronSobreMi {
-    padding-top: 2rem;
+/*titlesobremi component */
+
+#divTitleSobreMi {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    background-color: #283618;
 }
 
-#sobreMiText {
-    padding-top: 1rem;
-    padding-bottom: 4rem;
+#titleSobreMi {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2.75rem;
+    color: whitesmoke;
+}
+
+#jumbotronSobreMi {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/*Detalles component*/
+#titleDetalles {
+    font-weight: 500;
+    font-size: 2rem;
+    color: whitesmoke;
+}
+
+#divDetalles {
+    background-color: #4f772d;
+    padding: 3rem 3rem 3rem 10rem;
 }

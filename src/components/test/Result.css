@@ -1,0 +1,179 @@
+div {
+    font-family: 'Playfair Display', serif;
+}
+
+#mainResult {
+    padding-bottom: 18rem;
+}
+
+/*title component*/
+
+#divTitle {
+    background-color: #283618;
+}
+
+#tituloResultados {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: whitesmoke;
+}
+
+/*abstract component*/
+
+#abstractContainer {
+    position: relative;
+    display: inline-block;
+    text-align: start;
+}
+
+#listaDetalles {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    list-style-type: square;
+    color: white;
+}
+
+#tituloDispositivosResult {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: white;
+}
+
+/*result component*/
+
+#principal {
+    justify-content: center;
+    color: black;
+}
+
+#titulo1Co2 {
+    padding-top: 5rem;
+    color: black;
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+#textEquivalencias {
+    padding-top: 1rem;
+    color: black;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+#co2calculado {
+    padding-top: 2rem;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 1000;
+    font-size: 7rem;
+    color: black;
+}
+
+#indicadoresTest {
+    padding-top: 3rem;
+    padding-left: 2rem;
+}
+
+#drawCircleRed {
+    width: 350px;
+    height: 350px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #fb8500;
+    justify-content: center;
+}
+
+#drawCircleYellow {
+    width: 350px;
+    height: 350px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #ffbe0b;
+    justify-content: center;
+}
+
+#drawCirclePink {
+    width: 350px;
+    height: 350px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #ff006e;
+    justify-content: center;
+}
+
+#num {
+    text-align: center;
+    padding-top: 4.5rem;
+    font-weight: 600;
+    font-size: 4.5rem;
+}
+
+#text1Trees {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+#text2Trees {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+#text1coches {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+#text2coches {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+#text1Agua {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+#text2Agua {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#ticket-button {
+    justify-content: center;
+    padding-top: 5rem;
+    padding-left: 2rem;
+}
+
+#divbutton-ticket {
+}
+
+#descargarInfo {
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #f24c4e;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid #f24c4e;
+    padding: 7px;
+    text-decoration: none;
+    width: 120px;
+    height: 120px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    justify-content: center;
+}

@@ -9,10 +9,13 @@ import Contacto from "./components/contacto/Contacto";
 import Test from "./components/test/Test";
 import Menu from "./components/menu/Menu";
 import Footer from "./components/footer/Footer";
-import Result from "./components/result/Result";
 import AvisoLegal from "./components/footer/avisolegal/AvisoLegal";
+import PoliticaDePrivacidad from "./components/footer/politicadeprivacidad/PoliticaDePrivacidad";
 
 class App extends React.Component {
+    NotFound() {
+        return <h1>Not found!</h1>;
+    }
     render() {
         return (
             <Router>
@@ -22,9 +25,9 @@ class App extends React.Component {
                     <Route path='/sobremi' element={<SobreMi/>} />
                     <Route path='/contacto' element={<Contacto/>} />
                     <Route path='/test' element={<Test/>} />
-                    <Route path='/test/result' element={<Result />} />
-                    <Route path='/aviso-legal' element={<AvisoLegal />} />
-                    <Route render={() => <h1>Not found!</h1>} />
+                    <Route path='/aviso-legal' element={<AvisoLegal/>} />
+                    <Route path='/politica-de-privacidad' element={<PoliticaDePrivacidad/>} />
+                    <Route path="*" component={this.NotFound()} />
                 </Routes>
                 <Footer/>
             </Router>

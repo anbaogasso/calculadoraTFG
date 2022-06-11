@@ -9,22 +9,22 @@ class Footer extends React.Component {
     render() {
         return (
             <footer className="fixed-bottom bg-secondary text-white bg-dark">
-                <div className="container-fluid">
+                <div id="divFooter" className="container-fluid">
                     <nav className="row">
-                        <Link to='/' className="col-12 col-md-2 d-flex align-items-center justify-content-center">
-                            <img src={logo} alt="logo" className="mx-2" height='60'/>
+                        <Link to={'/'} className="col-12 col-md-4 d-flex align-items-center justify-content-center">
+                            <img src={logo} alt="logo" height="60" className="mx-2"/>
                         </Link>
-                        <ul className="col-12 col-md-4 list-unstyled text-white">
-                            <li className='font-weight-bold mb-2'>Enlaces</li>
+                        <ul className="col-12 col-md-4 list-unstyled text-white col-12">
+                            <h2 id="footerTitles">Enlaces</h2>
                             <li>
-                                <Link to='/sobremi' className="text-reset">Sobre Mí</Link>
+                                <Link to={'/sobremi'} className="text-reset">Sobre Mi</Link>
                             </li>
                             <li>
-                                <Link to='/contacto' className="text-reset">Contacto</Link>
+                                <Link to={'/contacto'} className="text-reset" >Contacto</Link>
                             </li>
                         </ul>
-                        <ul className="col-12 col-md-2 list-unstyled text-white">
-                            <li className='font-weight-bold mb-2'>Síguenos</li>
+                        <ul className="col-12 col-md-3 list-unstyled text-white">
+                            <h2 id="footerTitles">Sígueme</h2>
                             <li className="d-flex justify-content-between">
                                 <i className="bi bi-facebook"/>
                                 <i className="bi bi-instagram"/>
@@ -32,11 +32,11 @@ class Footer extends React.Component {
                                 <i className="bi bi-youtube"/>
                             </li>
                         </ul>
-                        <div className="container">
-                            <p>&copy; {(new Date().getFullYear())} An Bao Gassó Preixens, Inc. &middot; <Link to={'/aviso-legal'} className="text-reset">Política de Privacidad </Link>&middot; <a href="top" rel="noopener noreferrer" className="text-reset">Términos</a> &middot;
-                            </p>
-                        </div>
                     </nav>
+                    <div className="container-fluid">
+                        <p id="footerP">&copy; {(new Date().getFullYear())} An Bao Gassó Preixens, Inc. &middot; <Link to={'/aviso-legal'} className="text-reset">Aviso Legal </Link>&middot; <Link to={'/politica-de-privacidad'} className="text-reset">Política de Privacidad </Link> &middot;
+                        </p>
+                    </div>
                 </div>
             </footer>
         )

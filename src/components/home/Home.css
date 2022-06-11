@@ -39,15 +39,101 @@ h3 {
     text-decoration: none;
 }
 
-/*El elemento con id="description" */
-#description {
-    padding-top: 4rem;
-}
-
 #description2 {
     height: 15rem;
 }
 
 #titleTICO2 {
     color: #C1F4C5;
+}
+
+/*AboutMe Component */
+#divAboutMe {
+    padding-bottom: 5rem;
+    justify-content: center;
+}
+
+#divTitleConoceme {
+    padding-top: 3rem;
+    background-color: whitesmoke;
+    padding-bottom: 3rem;
+}
+
+#titleConoceme {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: #283618;
+}
+
+#divCuadrosMe {
+    padding-top: 4rem;
+    justify-content: center;
+}
+
+#cardTitle {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 1.85rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+#card1Text {
+    padding-bottom: 1rem;
+}
+
+#submitLeerMas {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 15px;
+    background-color: #f24c4e;
+    color: white;
+    border-radius: 6px;
+    border: 2px solid #f24c4e;
+    padding: 5px;
+    text-decoration: none;
+}
+
+#alinearCuadro {
+    padding-bottom: 4.4rem;
+}
+
+/*ContactHome Component */
+/* padding-left: 25rem; */
+#ContactHomeMain {
+    padding: 3rem 15rem 16rem;
+    background-color: #283618;
+    justify-content: center;
+}
+
+#titleContactHome {
+    padding-bottom: 4rem;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: white;
+}
+
+#divPrimeraLineaContact {
+    padding-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+#buttonSolicitarInfo {
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #f24c4e;
+    color: white;
+    border-radius: 6px;
+    border: 2px solid #f24c4e;
+    padding: 5px;
+    text-decoration: none;
+}
+
+#terminosHome {
+    padding-bottom: 2rem;
+    padding-top: 1rem;
 }

@@ -4,14 +4,16 @@ import './Home.css'
 import Slider from "./slider/Slider";
 import AboutMe from "./aboutme/AboutMe";
 import Descripcion from "./descripcion/Descripcion";
+import ContactHome from "./contactHome/ContactHome";
 
 class Home extends React.Component {
     render() {
         return (
-            <main role="main" className="">
+            <main role="main">
                 <Slider />
-                <AboutMe />
                 <Descripcion />
+                <AboutMe />
+                <ContactHome />
             </main>
         )
     }

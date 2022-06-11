@@ -1,9 +1,8 @@
 import React from "react";
 import Constants from "../../../Constants";
-import {ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import {toast, ToastContainer} from "react-toastify";
 
-class Formulario extends React.Component {
+class ContactHome extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -14,11 +13,11 @@ class Formulario extends React.Component {
                 text: "",
             },
         };
-        this.handleChangeMessage = this.handleChangeMessage.bind(this);
-        this.handleToSendForm = this.handleToSendForm.bind(this);
+        this.handleChangeMessHome = this.handleChangeMessHome.bind(this);
+        this.handleToSendFormHome = this.handleToSendFormHome.bind(this);
     }
 
-    handleChangeMessage (event) {
+    handleChangeMessHome (event) {
         const key = event.target.id;
         let value = event.target.value;
         this.setState(state => {
@@ -34,7 +33,7 @@ class Formulario extends React.Component {
         });
     }
 
-    async handleToSendForm(event) {
+    async handleToSendFormHome(event) {
         event.preventDefault();
         //Codificar el nuevo dispositivo como JSON
         const usefulLoad = JSON.stringify(this.state.newMessage);
@@ -44,9 +43,9 @@ class Formulario extends React.Component {
         });
         const successful = await response.json();
         if (successful) {
-            toast('Mensaje enviado!', {
+            toast('Mensaje enviado correctamente!', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 4000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -56,8 +55,8 @@ class Formulario extends React.Component {
             this.setState({
                 newMessage: {
                     name: "",
-                    email : "",
-                    subject : "",
+                    email: "",
+                    subject: "",
                     text: "",
                 },
             });
@@ -69,38 +68,37 @@ class Formulario extends React.Component {
     render() {
         const {newMessage} = this.state;
         return (
-            <>
+            <div id="ContactHomeMain">
                 <ToastContainer/>
-                <form onSubmit={this.handleToSendForm} className="mb-5 needs-validation">
-                    <div className="form-group">
-                        <label htmlFor="inputName" className="form-label">Su nombre</label>
-                        <input type="text" className="form-control" id="name" onChange={this.handleChangeMessage} value={newMessage.name} required/>
-                        <div className="invalid-feedback">
-                            Este campo es obligatorio.
+                <h1 id="titleContactHome">Contacta conmigo</h1>
+                <form onSubmit={this.handleToSendFormHome}>
+                    <div className="row" id="divPrimeraLineaContact">
+                        <div className="col-md-4">
+                            <input type="text" className="form-control" placeholder="Nombre y Apellidos" id="name" onChange={this.handleChangeMessHome} value={newMessage.name} required/>
+                            <div className="invalid-feedback">
+                                Este campo es obligatorio.
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="inputEmail" className="form-label">Su correo electrónico</label>
-                        <input type="email" className="form-control" id="email" onChange={this.handleChangeMessage} value={newMessage.email} required/>
-                        <div className="invalid-feedback">
-                            Este campo es obligatorio.
+                        <div className="col-md-4">
+                            <input type="email" className="form-control" placeholder="Email" id="email" onChange={this.handleChangeMessHome} value={newMessage.email} required/>
+                            <div className="invalid-feedback">
+                                Este campo es obligatorio.
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="inputAsunto" className="form-label">Asunto</label>
-                        <input type="text" className="form-control" id="subject" onChange={this.handleChangeMessage} value={newMessage.subject} required/>
-                        <div className="invalid-feedback">
-                            Este campo es obligatorio.
+                        <div className="col-md-4">
+                            <input type="text" className="form-control" placeholder="Asunto" id="subject" onChange={this.handleChangeMessHome} value={newMessage.subject} required/>
+                            <div className="invalid-feedback">
+                                Este campo es obligatorio.
+                            </div>
                         </div>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="inputMensaje" className="form-label">Mensaje </label>
-                        <textarea className="form-control" id="text" rows="4" onChange={this.handleChangeMessage} value={newMessage.text} required />
+                        <textarea className="form-control" placeholder="Cuéntame sus dudas" id="text" rows="5" onChange={this.handleChangeMessHome} value={newMessage.text} required />
                         <div className="invalid-feedback">
                             Este campo es obligatorio.
                         </div>
                     </div>
-                    <div className="form-check">
+                    <div id="terminosHome" className="form-check justify-content-center">
                         <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
                         <label className="form-check-label" htmlFor="invalidCheck">
                             Acepto los términos y las condiciones.
@@ -109,12 +107,11 @@ class Formulario extends React.Component {
                             Debe aceptar antes de enviar.
                         </div>
                     </div>
-                    <br/>
-                    <button id="buttonEnviarContacto" className="btn btn-primary" type="submit">ENVIAR</button>
+                    <button id="buttonSolicitarInfo" className="btn btn-primary justify-content-center" type="submit">SOLICITA INFORMACIÓN</button>
                 </form>
-            </>
+            </div>
         )
     }
 }
 
-export default Formulario;
+export default ContactHome;

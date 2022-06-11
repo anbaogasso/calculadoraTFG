@@ -1,12 +1,12 @@
 /*slideAvisoLegal component */
 
-#divTitleAvisoLegal {
+#divTitlePolitica {
     padding-top: 5rem;
     padding-bottom: 2rem;
     background-color: #283618;
 }
 
-#titleAvisoLegal {
+#titlePolitica {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: 600;
@@ -14,27 +14,20 @@
     color: whitesmoke;
 }
 
-/*textavisolegal component*/
+/*textPolitica component*/
 
-#avisoLegalContainer {
+#politicaContainer {
     padding-top: 3rem;
     padding-bottom: 15rem;
     font-family: 'Playfair Display', serif;
     color: black;
 }
 
-#avisoLegalText {
+#politicaText {
     color: black;
 }
 
-#titleObjeto {
-    padding-top: 1.5rem;
-    font-weight: 600;
-    font-size: 1.35rem;
-    padding-bottom: 1rem;
-}
-
-#titlesAvisoLegal {
+#titlesPolitica {
     padding-top: 1.5rem;
     font-weight: 600;
     font-size: 1.15rem;
