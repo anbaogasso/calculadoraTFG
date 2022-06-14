@@ -17,6 +17,9 @@ class Footer extends React.Component {
                         <ul className="col-12 col-md-4 list-unstyled text-white col-12">
                             <h2 id="footerTitles">Enlaces</h2>
                             <li>
+                                <Link to={'/prova'} className="text-reset">Prova</Link>
+                            </li>
+                            <li>
                                 <Link to={'/sobremi'} className="text-reset">Sobre Mi</Link>
                             </li>
                             <li>

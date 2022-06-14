@@ -16,9 +16,15 @@
 
 /*Test component*/
 #divTest {
-    padding: 4rem 3rem 4rem;
+    padding: 3rem 3rem 4rem;
     color: black;
     font-family: 'Playfair Display', serif;
+}
+
+#infoCalculadora {
+    font-weight: 400;
+    font-size: 1rem;
+    padding-bottom: 2rem;
 }
 
 #testTitles {
@@ -31,8 +37,10 @@ h6 {
     font-weight: 300;
 }
 
-#formTest {
-
+#infoAddicional {
+    padding-top: 1rem;
+    font-weight: 400;
+    font-size: 0.95rem;
 }
 
 #buttonSubmit {

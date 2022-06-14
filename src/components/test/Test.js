@@ -21,7 +21,7 @@ class Test extends React.Component{
                 weight: "",
                 units: 1,
                 hours: 0,
-                consumtype: 1,
+                distance: 17345.85,
             },
             deviceclient: {
                 id: "",
@@ -31,7 +31,7 @@ class Test extends React.Component{
                 weight: "",
                 units: "",
                 hours: "",
-                consumtype: "",
+                distance: "",
             },
             device: {
                 type: "",
@@ -54,8 +54,12 @@ class Test extends React.Component{
             const updatedDevice = state.newClient;
             if (key === "weight") {
                 value = parseFloat(value);
-            } else if (key === "intConsum1" || key === "intConsum2") {
+            } else if (key === "units") {
                 value = parseInt(value);
+            } else if (key === "hours") {
+                value = parseFloat(value);
+            } else if (key === "distance") {
+                value = parseFloat(value);
             }
             //Actualizamos el valodr de newClient solo los campos que han cambiado.
             updatedDevice[key] = value;
@@ -67,11 +71,11 @@ class Test extends React.Component{
 
     tipoDeDispositivo = () => {
         let value = this.state.deviceclient.type;
-        if (value === "portátil" || value === "portatil") {
+        if (value === "portátil" || value === "portatil" || value === "laptop") {
             this.setState({
                 infoType: "laptop",
             });
-        } else if (value === "ordenador sobremesa" || value === "sobremesa" || value === "ordenador de sobremesa") {
+        } else if (value === "ordenador sobremesa" || value === "sobremesa" || value === "ordenador de sobremesa" || value === "desktop") {
             this.setState({
                 infoType: "desktop",
             });
@@ -106,7 +110,7 @@ class Test extends React.Component{
                     weight: "",
                     units: 1,
                     hours: 0,
-                    consumtype: 1,
+                    distance: 17345.85,
                 }
             });
             this.tipoDeDispositivo();
@@ -157,7 +161,7 @@ class Test extends React.Component{
                 weight: "",
                 units: "",
                 hours: "",
-                consumtype: "",
+                distance: "",
             },
         });
     }
@@ -169,25 +173,38 @@ class Test extends React.Component{
                 <TitleTest/>
                 <div id="divTest">
                     <ToastContainer/>
+                    <h2 id="infoCalculadora">Calculadora para generar informes de sostenibilidad mediante las estimaciones de CO2 por cada dispositivo que introduzcas a continuación.</h2>
                     <form onSubmit={this.handleFormSubmission} id="formTest">
                         <h2 id="testTitles">Dispositivo TIC</h2>
                         <div className="mb-4">
                             <label className="form-label" htmlFor="typeDevice">¿Qué tipo de dispositivo es?</label>
-                            <input type="text" className="form-control" id="type" placeholder="Portátil, ordenador sobremesa o monitor ordenador" onChange={this.handleChange} value={newClient.type}/>
+                            <input type="text" className="form-control" id="type" placeholder="Portátil, ordenador sobremesa o monitor ordenador" onChange={this.handleChange} value={newClient.type} required/>
+                            <div className="invalid-feedback">
+                                Este campo es obligatorio.
+                            </div>
                         </div>
                         <div className="mb-4">
                             <label className="form-label" htmlFor="nameModel">¿Cuál es el modelo de tu dispositivo?</label>
-                            <input type="text" className="form-control" id="model" placeholder="ThinkPad E15 Gen 2" onChange={this.handleChange} value={newClient.model}/>
+                            <input type="text" className="form-control" id="model" placeholder="ThinkPad E15 Gen 2" onChange={this.handleChange} value={newClient.model} required/>
+                            <div className="invalid-feedback">
+                                Este campo es obligatorio.
+                            </div>
                         </div>
                         <div className="mb-4">
                             <label htmlFor="nameBrand" className="form-label">¿Cuál es la marca de tu dispositivo?</label>
                             <input type="text" className="form-control" id="brand"
-                                   placeholder="Lenovo" onChange={this.handleChange} value={newClient.brand}/>
+                                   placeholder="Lenovo" onChange={this.handleChange} value={newClient.brand} required/>
+                            <div className="invalid-feedback">
+                                Este campo es obligatorio.
+                            </div>
                         </div>
                         <div className="mb-4">
                             <label htmlFor="weight" className="form-label">¿Cuál es el peso de su dispositivo? (en Kg)</label>
                             <input type="number" step="0.001" className="form-control" id="weight" min="0" max="300"
-                                   placeholder="1.34 kg" onChange={this.handleChange} value={newClient.weight}/>
+                                   placeholder="1.34" onChange={this.handleChange} value={newClient.weight} required/>
+                            <div className="invalid-feedback">
+                                Este campo es obligatorio.
+                            </div>
                         </div>
                         <div className="mb-4">
                             <label htmlFor="units" className="form-label">¿Cuantas unidades son?</label>
@@ -195,24 +212,15 @@ class Test extends React.Component{
                                    placeholder="1" onChange={this.handleChange} value={newClient.units}/>
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="hoursOfUse" className="form-label">Horas de uso de su dispositivo. (hh:mm:ss)</label>
-                            <input type="time" className="form-control" id="hours" step="2" min="00:00:00" max="838:59:59"
-                                   placeholder="hh:mm:ss" onChange={this.handleChange} value={newClient.hours}/>
+                            <label htmlFor="hoursOfUse" className="form-label">Opcional: Horas de uso de su dispositivo. (en horas)</label>
+                            <input type="string" className="form-control" id="hours"
+                                   placeholder="20998.49" onChange={this.handleChange} value={newClient.hours}/>
                         </div>
                         <div className="mb-4">
-                            <h6>¿Qué tipo de electricidad utilizas?</h6>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="checkConsum" id="intConsum1" value="1"/>
-                                <label className="form-check-label" htmlFor="intConsum1">
-                                    Electricidad convencional
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="checkConsum" id="intConsum2" value="2"/>
-                                <label className="form-check-label" htmlFor="intConsum2">
-                                    Electricidad renovable
-                                </label>
-                            </div>
+                            <label htmlFor="distanceKm" className="form-label">Opcional: Distáncia que hay entre la ciudad de orgen del dispositivo (dónde se ha fabricado) y su destino (la ciudad de residencia o de trabajo). (en Km)</label>
+                            <input type="string" className="form-control" id="distance"
+                                   placeholder="17345.85" onChange={this.handleChange} value={newClient.distance}/>
+                            <h2 id="infoAddicional">Aviso: Si no se introduce nada, se asumirá que son 17345.85 km, que es la distancia existente entre Pekín (China) y Barcelona (España).</h2>
                         </div>
                         <button id="buttonSubmit" type="submit">ENVIAR</button>
                         <br/>

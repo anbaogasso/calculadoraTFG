@@ -11,6 +11,7 @@ import Menu from "./components/menu/Menu";
 import Footer from "./components/footer/Footer";
 import AvisoLegal from "./components/footer/avisolegal/AvisoLegal";
 import PoliticaDePrivacidad from "./components/footer/politicadeprivacidad/PoliticaDePrivacidad";
+import ProvaBaseDeDades from "./components/provabasededades/ProvaBaseDeDades";
 
 class App extends React.Component {
     NotFound() {
@@ -27,6 +28,7 @@ class App extends React.Component {
                     <Route path='/test' element={<Test/>} />
                     <Route path='/aviso-legal' element={<AvisoLegal/>} />
                     <Route path='/politica-de-privacidad' element={<PoliticaDePrivacidad/>} />
+                    <Route path='/prova' element={<ProvaBaseDeDades />}  />
                     <Route path="*" component={this.NotFound()} />
                 </Routes>
                 <Footer/>
