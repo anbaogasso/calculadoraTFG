@@ -35,16 +35,29 @@ class Test extends React.Component{
             },
             device: {
                 type: "",
-                footprint: "",
+                manuconst: "",
+                transportconst: "",
+                useconst: "",
                 trees: "",
                 cars: "",
                 water: "",
             },
             infoType: "nothing",
+            impact: {
+                manufacturing: "",
+                transport: "",
+                use: "",
+                total: "",
+                totalCO2: "",
+                equivalenceInTrees: "",
+                equivalenceInCars: "",
+                watersaving: "",
+            },
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleFormSubmission = this.handleFormSubmission.bind(this);
         this.handleNew = this.handleNew.bind(this);
+        //this.formulaToCalculateTheImpact = this.formulaToCalculateTheImpact.bind(this);
     }
 
     handleChange(event) {
@@ -69,19 +82,38 @@ class Test extends React.Component{
         });
     }
 
+    handleNew(event) {
+        event.preventDefault();
+        this.setState({
+            device: {
+                type: "",
+                footprint: "",
+                trees: "",
+                cars: "",
+                water: "",
+            },
+            deviceclient: {
+                id: "",
+                model : "",
+                brand : "",
+                type: "",
+                weight: "",
+                units: "",
+                hours: "",
+                distance: "",
+            },
+        });
+    }
+
     tipoDeDispositivo = () => {
         let value = this.state.deviceclient.type;
         if (value === "portátil" || value === "portatil" || value === "laptop") {
             this.setState({
                 infoType: "laptop",
             });
-        } else if (value === "ordenador sobremesa" || value === "sobremesa" || value === "ordenador de sobremesa" || value === "desktop") {
+        } else if (value === "ordenador sobremesa" || value === "sobremesa" || value === "ordenador de sobremesa" || value === "desktop" || value === "ordenador") {
             this.setState({
                 infoType: "desktop",
-            });
-        } else if (value === "monitor ordenador" || value === "monitor" || value === "monitor de ordenador") {
-            this.setState({
-                infoType: "computerMonitor",
             });
         } else {
             this.setState({
@@ -122,6 +154,7 @@ class Test extends React.Component{
                             device: result,
                             isLoaded: true
                         });
+                        this.formulaToCalculateTheImpact();
                     },
                     (error) => {
                         this.setState({
@@ -143,31 +176,34 @@ class Test extends React.Component{
         }
     }
 
-    handleNew(event) {
-        event.preventDefault();
-        this.setState({
-            device: {
-                type: "",
-                footprint: "",
-                trees: "",
-                cars: "",
-                water: "",
-            },
-            deviceclient: {
-                id: "",
-                model : "",
-                brand : "",
-                type: "",
-                weight: "",
-                units: "",
-                hours: "",
-                distance: "",
-            },
+    formulaToCalculateTheImpact = () => {
+        const {device, deviceclient} = this.state;
+        let calcMan = device.manuconst;
+        let calTran = device.transportconst * deviceclient.distance;
+        let calUse = device.useconst * deviceclient.hours;
+        let totalCalc = ((calcMan + calTran) + calUse);
+        let totalUnits = totalCalc * deviceclient.units;
+        let calcTrees = (device.trees * totalUnits).toFixed(3);
+        let calcCars = (device.cars * totalUnits).toFixed(3);
+        let calcWater = (device.water * totalUnits).toFixed(3);
+        this.setState(state => {
+            const updatedImpact = state.impact;
+            updatedImpact["manufacturing"] = calcMan;
+            updatedImpact["transport"] = calTran.toFixed(3);
+            updatedImpact["use"] = calUse.toFixed(3);
+            updatedImpact["total"] = totalCalc.toFixed(3);
+            updatedImpact["totalCO2"] = totalUnits.toFixed(3);
+            updatedImpact["equivalenceInTrees"] = calcTrees;
+            updatedImpact["equivalenceInCars"] = calcCars;
+            updatedImpact["watersaving"] = calcWater;
+            return {
+                newimapct: updatedImpact,
+            }
         });
     }
 
     render() {
-        const {newClient, deviceclient, device} = this.state;
+        const {newClient, deviceclient, impact} = this.state;
         return (
             <>
                 <TitleTest/>
@@ -178,7 +214,7 @@ class Test extends React.Component{
                         <h2 id="testTitles">Dispositivo TIC</h2>
                         <div className="mb-4">
                             <label className="form-label" htmlFor="typeDevice">¿Qué tipo de dispositivo es?</label>
-                            <input type="text" className="form-control" id="type" placeholder="Portátil, ordenador sobremesa o monitor ordenador" onChange={this.handleChange} value={newClient.type} required/>
+                            <input type="text" className="form-control" id="type" placeholder="Portátil o ordenador de sobremesa" onChange={this.handleChange} value={newClient.type} required/>
                             <div className="invalid-feedback">
                                 Este campo es obligatorio.
                             </div>
@@ -234,10 +270,10 @@ class Test extends React.Component{
                             <h3 id="titulo1Co2">EL CO2 EVITADO ES: </h3>
                         </div>
                         <div className="col-4">
-                            <h2 id="co2calculado">{device.footprint}</h2>
+                            <h2 id="co2calculado">{this.state.impact.totalCO2}</h2>
                         </div>
                         <div className="col-2">
-                            <h3 id="titulo1Co2">kg!</h3>
+                            <h3 id="titulo1Co2">kg de co2eq!</h3>
                         </div>
                     </div>
                     <div id="ticket-button" className="row">
@@ -249,25 +285,68 @@ class Test extends React.Component{
                         <div className="row" id="indicadoresTest">
                             <div className="col-md-4">
                                 <div id="drawCircleRed">
-                                    <p id="num">{device.trees}</p>
+                                    <p id="num">{this.state.impact.equivalenceInTrees}</p>
                                     <p id="text1Trees">árboles</p>
                                     <p id="text2Trees">absorbiendo CO2 en un día</p>
                                 </div>
                             </div>
                             <div className="col-md-4">
                                 <div id="drawCircleYellow">
-                                    <p id="num">{device.cars}</p>
+                                    <p id="num">{this.state.impact.equivalenceInCars}</p>
                                     <p id="text1coches">Coches</p>
                                     <p id="text2coches">eliminados de circulación en un día</p>
                                 </div>
                             </div>
                             <div className="col-md-4">
                                 <div id="drawCirclePink">
-                                    <p id="num">{device.water}</p>
+                                    <p id="num">{this.state.impact.watersaving}</p>
                                     <p id="text1Agua">litros de agua</p>
                                     <p id="text2Agua">ahorrados</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div id="divtablaResumen" className="row">
+                        <div className="col-md-10">
+                            <h3 id="titleTablaResumen">Resultados detallados:</h3>
+                        </div>
+                        <div className="col-md-10">
+                            <table id="tablaResumen" className="table table-sm table-borderless">
+                                <thead className="table-dark">
+                                <tr>
+                                    <th scope="col">Etapa</th>
+                                    <th scope="col">Global warming (GWP100a)</th>
+                                    <th scope="col">Unidad</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Fabricación + Materiales</td>
+                                    <td>{impact.manufacturing}</td>
+                                    <td>kg co2eq</td>
+                                </tr>
+                                <tr>
+                                    <td>Transporte</td>
+                                    <td>{impact.transport}</td>
+                                    <td>kg co2eq</td>
+                                </tr>
+                                <tr>
+                                    <td>Uso</td>
+                                    <td>{impact.use}</td>
+                                    <td>kg co2eq</td>
+                                </tr>
+                                <tr className="table-dark">
+                                    <td>Total</td>
+                                    <td>{impact.total}</td>
+                                    <td>kg  co2eq</td>
+                                </tr>
+                                <tr className="table-dark">
+                                    <td>Total con {deviceclient.units} unidad/es</td>
+                                    <td>{impact.totalCO2}</td>
+                                    <td>kg  co2eq</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div id="ticket-button" className="row">

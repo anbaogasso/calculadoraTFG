@@ -153,6 +153,25 @@ div {
     font-size: 1.2rem;
 }
 
+#divtablaResumen {
+    justify-content: center;
+    padding-top: 4rem;
+    padding-left: 2rem;
+}
+
+#titleTablaResumen {
+    color: black;
+    font-weight: 500;
+    font-size: 1.25rem;
+    padding-bottom: 2rem;
+}
+
+#tablaResumen {
+    font-weight: 500;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
 #ticket-button {
     justify-content: center;
     padding-top: 5rem;
