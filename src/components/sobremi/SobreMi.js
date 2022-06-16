@@ -10,7 +10,7 @@ import foto_hojas from '../images/hojas_fondo.jpg';
 class SobreMi extends React.Component {
     render() {
         return (
-            <div>
+            <div id="divSobreMiPrincipal">
                 <TitleSobreMi/>
                 <Jumbotron />
                 <Detalles />

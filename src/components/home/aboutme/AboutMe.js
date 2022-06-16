@@ -28,7 +28,7 @@ class AboutMe extends React.Component {
                             <div className="card-body">
                                 <h5 id="cardTitle" className="card-title">Mi Proyecto</h5>
                                 <p id="alinearCuadro" className="card-text">
-                                    Siempre estoy trabajando en algo. Este proyecto me permitira experimentar con conceptos e ideas nuevas.
+                                    Este proyecto pertenece al prototipo inicial de mi Trabajo de Fin de Grado de la FIB y por lo tanto, me permitirá aprender nuevas tecnologías, diseñar y programar apliaciones web y distribuidas, y conocer conceptos nuevos sobre la economía circula y sus consecuencias.
                                 </p>
                             </div>
                         </div>

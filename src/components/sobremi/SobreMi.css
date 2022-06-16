@@ -13,10 +13,17 @@
     color: whitesmoke;
 }
 
+/* Jumbotron component */
+
 #jumbotronSobreMi {
     text-align: center;
     padding-top: 3rem;
     padding-bottom: 3rem;
+}
+
+#sobreMiText {
+    font-weight: 600;
+    font-size: 1.02rem;
 }
 
 /*Detalles component*/
@@ -29,4 +36,9 @@
 #divDetalles {
     background-color: #4f772d;
     padding: 3rem 3rem 3rem 10rem;
+}
+
+/*SobreMi component */
+#divSobreMiPrincipal{
+    padding-bottom: 10rem;
 }

@@ -31,7 +31,7 @@ class App extends React.Component {
                     <Route path='/prova' element={<ProvaBaseDeDades />}  />
                     <Route path="*" component={this.NotFound()} />
                 </Routes>
-                <Footer/>
+                <Footer />
             </Router>
         );
     }

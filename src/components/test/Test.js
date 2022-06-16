@@ -9,6 +9,7 @@ import Title from "./title/Title";
 import Abstract from "./abstract/Abstract";
 import './Result.css';
 import TestDetails from "./testDetails/TestDetails";
+import {Link} from "react-router-dom";
 
 class Test extends React.Component{
     constructor(props) {
@@ -59,6 +60,11 @@ class Test extends React.Component{
         this.handleFormSubmission = this.handleFormSubmission.bind(this);
         this.handleNew = this.handleNew.bind(this);
         this.handleDownload = this.handleDownload.bind(this);
+        this.redirectToHome = this.redirectToHome.bind(this);
+    }
+
+    redirectToHome() {
+        return <Link to='/' />
     }
 
     handleChange(event) {
@@ -395,8 +401,11 @@ class Test extends React.Component{
                         </div>
                     </div>
                     <div id="ticket-button" className="row">
-                        <div className="col-md-10" id="divbutton-ticket">
+                        <div className="col-md-10">
                             <button id="descargarInfo" type="button" onClick={this.handleDownload}>Descargar informe</button>
+                        </div>
+                        <div className="col-md-8">
+                            <Link to={'/'} id="backToHome" className="button is-info">Volver al Home</Link>
                         </div>
                     </div>
                 </main>

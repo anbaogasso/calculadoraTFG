@@ -11,7 +11,7 @@ class Descripcion extends React.Component {
                         <img src={fondo} className="d-block w-100" alt="TICO2description"/>
                         <div className="carousel-caption d-none d-md-block">
                             <h3 id="titleTICO2">TICO2</h3>
-                            <p>El objetivo principal de este proyecto es diseñar un explorador/exportador de informes de trazabilidad y de impacto ambiental de dispositivos informáticos.</p>
+                            <p>El objetivo principal de este proyecto es diseñar un generador o calculadora de informes de trazabilidad y de impacto ambiental de dispositivos informáticos como son los ordenadores.</p>
                         </div>
                     </div>
                 </div>
