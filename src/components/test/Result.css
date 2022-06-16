@@ -37,12 +37,15 @@ div {
     transform: translate(-50%, -50%);
     list-style-type: square;
     color: white;
+    font-weight: 600;
 }
 
 #tituloDispositivosResult {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
     color: white;
+    padding-bottom: 1rem;
+    padding-top: 3rem;
 }
 
 /*result component*/

@@ -65,3 +65,13 @@ h6 {
     padding: 7px;
     text-decoration: none;
 }
+
+/* TestDetails component */
+
+#divTestDetails {
+    background-color: #82954B;
+    text-align: left;
+    padding-left: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 0.5rem;
+}

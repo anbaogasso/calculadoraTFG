@@ -8,6 +8,7 @@ import TitleTest from "./titleTest/TitleTest";
 import Title from "./title/Title";
 import Abstract from "./abstract/Abstract";
 import './Result.css';
+import TestDetails from "./testDetails/TestDetails";
 
 class Test extends React.Component{
     constructor(props) {
@@ -57,7 +58,7 @@ class Test extends React.Component{
         this.handleChange = this.handleChange.bind(this);
         this.handleFormSubmission = this.handleFormSubmission.bind(this);
         this.handleNew = this.handleNew.bind(this);
-        //this.formulaToCalculateTheImpact = this.formulaToCalculateTheImpact.bind(this);
+        this.handleDownload = this.handleDownload.bind(this);
     }
 
     handleChange(event) {
@@ -102,7 +103,38 @@ class Test extends React.Component{
                 hours: "",
                 distance: "",
             },
+            impact: {
+                manufacturing: "",
+                transport: "",
+                use: "",
+                total: "",
+                totalCO2: "",
+                equivalenceInTrees: "",
+                equivalenceInCars: "",
+                watersaving: "",
+            },
         });
+    }
+
+    handleDownload = (e) => {
+        e.preventDefault();
+        let brand = this.state.deviceclient.brand;
+        let model = this.state.deviceclient.model;
+        let type = this.state.device.type;
+        let name = brand + '-' + model + '-' + type + '-' + "results";
+        const json = JSON.stringify(this.state.impact);
+        console.log(json);
+        this.downloadObjectAsJson(json, name);
+    }
+
+    downloadObjectAsJson = (exportObj, exportName) => {
+        let dataSr = "data:text/json; charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+        let downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataSr);
+        downloadAnchorNode.setAttribute("download", exportName + ".json");
+        document.body.appendChild(downloadAnchorNode); //required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
     }
 
     tipoDeDispositivo = () => {
@@ -146,33 +178,46 @@ class Test extends React.Component{
                 }
             });
             this.tipoDeDispositivo();
-            fetch(`${Constants.RUTA_API}/get_type_devices.php?type=${this.state.infoType}`)
-                .then(res => res.json())
-                .then(
-                    (result) => {
-                        this.setState({
-                            device: result,
-                            isLoaded: true
-                        });
-                        this.formulaToCalculateTheImpact();
-                    },
-                    (error) => {
-                        this.setState({
-                            isLoaded: true,
-                            error
+            if (this.state.infoType === "nothing") {
+                toast("Hay algún error en los datos introducidos, por favor inténtalo de nuevo", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                this.handleNew();
+            } else {
+                fetch(`${Constants.RUTA_API}/get_type_devices.php?type=${this.state.infoType}`)
+                    .then(res => res.json())
+                    .then(
+                        (result) => {
+                            this.setState({
+                                device: result,
+                                isLoaded: true
+                            });
+                            this.formulaToCalculateTheImpact();
+                        },
+                        (error) => {
+                            this.setState({
+                                isLoaded: true,
+                                error
+                            })
                         })
-                    })
-            toast('Guardado satisfactoriamente, para ver los resultados ve hacia abajo!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+                toast('Guardado satisfactoriamente, para ver los resultados ve hacia abajo!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
         } else {
-            toast.error("Error guardando. Intenalo de nuevo");
+            toast.error("Error guardando. Inténtalo de nuevo");
         }
     }
 
@@ -207,9 +252,9 @@ class Test extends React.Component{
         return (
             <>
                 <TitleTest/>
+                <TestDetails />
                 <div id="divTest">
                     <ToastContainer/>
-                    <h2 id="infoCalculadora">Calculadora para generar informes de sostenibilidad mediante las estimaciones de CO2 por cada dispositivo que introduzcas a continuación.</h2>
                     <form onSubmit={this.handleFormSubmission} id="formTest">
                         <h2 id="testTitles">Dispositivo TIC</h2>
                         <div className="mb-4">
@@ -249,12 +294,12 @@ class Test extends React.Component{
                         </div>
                         <div className="mb-4">
                             <label htmlFor="hoursOfUse" className="form-label">Opcional: Horas de uso de su dispositivo. (en horas)</label>
-                            <input type="string" className="form-control" id="hours"
+                            <input type="number" step="0.01" className="form-control" id="hours" min="0"
                                    placeholder="20998.49" onChange={this.handleChange} value={newClient.hours}/>
                         </div>
                         <div className="mb-4">
                             <label htmlFor="distanceKm" className="form-label">Opcional: Distáncia que hay entre la ciudad de orgen del dispositivo (dónde se ha fabricado) y su destino (la ciudad de residencia o de trabajo). (en Km)</label>
-                            <input type="string" className="form-control" id="distance"
+                            <input type="number" step="0.01" className="form-control" id="distance" min="0"
                                    placeholder="17345.85" onChange={this.handleChange} value={newClient.distance}/>
                             <h2 id="infoAddicional">Aviso: Si no se introduce nada, se asumirá que son 17345.85 km, que es la distancia existente entre Pekín (China) y Barcelona (España).</h2>
                         </div>
@@ -351,7 +396,7 @@ class Test extends React.Component{
                     </div>
                     <div id="ticket-button" className="row">
                         <div className="col-md-10" id="divbutton-ticket">
-                            <button id="descargarInfo" type="button" onSubmit={this.handleNew} >Descargar informe</button>
+                            <button id="descargarInfo" type="button" onClick={this.handleDownload}>Descargar informe</button>
                         </div>
                     </div>
                 </main>
