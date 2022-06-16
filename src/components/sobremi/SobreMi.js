@@ -8,6 +8,9 @@ import TitleSobreMi from "./titlesobremi/TitleSobreMi";
 import foto_hojas from '../images/hojas_fondo.jpg';
 
 class SobreMi extends React.Component {
+    componentDidMount() {
+        window.scrollTo(0,0)
+    }
     render() {
         return (
             <div id="divSobreMiPrincipal">

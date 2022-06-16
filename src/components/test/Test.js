@@ -63,6 +63,10 @@ class Test extends React.Component{
         this.redirectToHome = this.redirectToHome.bind(this);
     }
 
+    componentDidMount() {
+        window.scrollTo(0,0)
+    }
+
     redirectToHome() {
         return <Link to='/' />
     }

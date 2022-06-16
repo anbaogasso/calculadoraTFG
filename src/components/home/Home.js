@@ -7,6 +7,10 @@ import Descripcion from "./descripcion/Descripcion";
 import ContactHome from "./contactHome/ContactHome";
 
 class Home extends React.Component {
+    componentDidMount() {
+        window.scrollTo(0,0)
+    }
+
     render() {
         return (
             <main role="main">
