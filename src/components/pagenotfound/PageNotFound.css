@@ -1,0 +1,26 @@
+#wrapper {
+    padding-top: 3rem;
+    padding-bottom: 10rem;
+}
+
+#info {
+    padding-top: 10rem;
+    text-align: center;
+}
+
+#error404 {
+    font-weight: 600;
+    font-size: 8rem;
+    color: black;
+}
+
+#error {
+    font-weight: 600;
+    font-size: 2rem;
+    color: black;
+}
+
+#pageNotFound {
+    color: black;
+    font-weight: 600;
+}

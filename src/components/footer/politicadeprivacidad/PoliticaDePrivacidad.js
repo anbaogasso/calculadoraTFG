@@ -5,6 +5,10 @@ import TitlePolitica from "./titlePolitica/TitlePolitica";
 import TextPolitica from "./textPolitica/TextPolitica";
 
 class PoliticaDePrivacidad extends React.Component {
+    componentDidMount() {
+        window.scrollTo(0,0)
+    }
+
     render() {
         return (
             <>

@@ -54,6 +54,8 @@ class Test extends React.Component{
                 equivalenceInTrees: "",
                 equivalenceInCars: "",
                 watersaving: "",
+                workhours: "",
+                eurosbacktosociety: "",
             },
         };
         this.handleChange = this.handleChange.bind(this);
@@ -241,6 +243,8 @@ class Test extends React.Component{
         let calcTrees = (device.trees * totalUnits).toFixed(3);
         let calcCars = (device.cars * totalUnits).toFixed(3);
         let calcWater = (device.water * totalUnits).toFixed(3);
+        let calcWork = (device.work * deviceclient.units).toFixed(3);
+        let calcEuro = (device.euro * deviceclient.units).toFixed(3);
         this.setState(state => {
             const updatedImpact = state.impact;
             updatedImpact["manufacturing"] = calcMan;
@@ -251,6 +255,8 @@ class Test extends React.Component{
             updatedImpact["equivalenceInTrees"] = calcTrees;
             updatedImpact["equivalenceInCars"] = calcCars;
             updatedImpact["watersaving"] = calcWater;
+            updatedImpact["workhours"] = calcWork;
+            updatedImpact["eurosbacktosociety"] = calcEuro;
             return {
                 newimapct: updatedImpact,
             }
@@ -275,14 +281,14 @@ class Test extends React.Component{
                             </div>
                         </div>
                         <div className="mb-4">
-                            <label className="form-label" htmlFor="nameModel">¿Cuál es el modelo de tu dispositivo?</label>
+                            <label className="form-label" htmlFor="nameModel">¿Cuál es el modelo de su dispositivo?</label>
                             <input type="text" className="form-control" id="model" placeholder="ThinkPad E15 Gen 2" onChange={this.handleChange} value={newClient.model} required/>
                             <div className="invalid-feedback">
                                 Este campo es obligatorio.
                             </div>
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="nameBrand" className="form-label">¿Cuál es la marca de tu dispositivo?</label>
+                            <label htmlFor="nameBrand" className="form-label">¿Cuál es la marca de su dispositivo?</label>
                             <input type="text" className="form-control" id="brand"
                                    placeholder="Lenovo" onChange={this.handleChange} value={newClient.brand} required/>
                             <div className="invalid-feedback">
@@ -402,6 +408,28 @@ class Test extends React.Component{
                                 </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                    <div id="divimpactesocial" className="row">
+                        <div className="col-md-10">
+                            <p id="titlesocialimpact" className="col-md-10">Si reutiliza su dispositivo puede contribuir a generar:</p>
+                        </div>
+                    </div>
+                    <div id="circlesSocial" className="container">
+                        <div className="row">
+                            <div className="col-md-6">
+                                <div id="drawCircleGreen">
+                                    <p id="num">{impact.workhours}</p>
+                                    <p id="text1Social">horas de trabajo</p>
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div id="drawCircleBlue">
+                                    <p id="num">{impact.eurosbacktosociety}</p>
+                                    <p id="text2Social">€</p>
+                                    <p id="text3Social">de retorno a la sociedad</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div id="ticket-button" className="row">

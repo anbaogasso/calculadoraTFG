@@ -175,6 +175,63 @@ div {
     border-collapse: collapse;
 }
 
+#divimpactesocial {
+    justify-content: center;
+    padding-top: 3rem;
+    padding-left: 2rem;
+}
+
+#titlesocialimpact {
+    color: black;
+    font-weight: 500;
+    font-size: 1.25rem;
+    padding-bottom: 2rem;
+}
+
+#circlesSocial {
+    justify-content: center;
+    padding-left: 10rem;
+}
+
+#drawCircleGreen {
+    width: 350px;
+    height: 350px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #386641;
+    justify-content: center;
+}
+
+#text1Social {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+#drawCircleBlue {
+    text-align: center;
+    width: 350px;
+    height: 350px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #3AB0FF;
+    justify-content: center;
+}
+
+#text2Social {
+    text-align: center;
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+#text3Social {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.20rem;
+}
+
 #ticket-button {
     justify-content: center;
     padding-top: 5rem;
@@ -200,11 +257,11 @@ div {
 #backToHome {
     font-weight: 500;
     font-size: 17px;
-    background-color: #3AB0FF;
+    background-color: #233d4d;
     display: block;
     color: white;
     border-radius: 50%;
-    border: 2px solid #3AB0FF;
+    border: 2px solid #233d4d;
     padding: 7px;
     text-decoration: none;
     text-align: center;

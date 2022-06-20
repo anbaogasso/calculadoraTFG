@@ -11,6 +11,7 @@ class Contacto extends React.Component {
     componentDidMount() {
         window.scrollTo(0,0)
     }
+
     render() {
         return (
             <main id="contactoMain" role="main" className="flex-shrink-0 mt-5">

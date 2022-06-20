@@ -1,6 +1,7 @@
 import React from "react";
 import Constants from "../../../Constants";
 import {toast, ToastContainer} from "react-toastify";
+import {Link} from "react-router-dom";
 
 class ContactHome extends React.Component {
     constructor(props) {
@@ -101,7 +102,7 @@ class ContactHome extends React.Component {
                     <div id="terminosHome" className="form-check justify-content-center">
                         <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
                         <label className="form-check-label" htmlFor="invalidCheck">
-                            Acepto los términos y las condiciones.
+                            <p>Acepto los <Link to={'/aviso-legal'} className="text-reset">términos</Link> y las <Link to={'/politica-de-privacidad'} className="text-reset">condiciones</Link>.</p>
                         </label>
                         <div className="invalid-feedback">
                             Debe aceptar antes de enviar.
